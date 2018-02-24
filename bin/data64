@@ -10,4 +10,4 @@ fi
 mime_type="$(file -b --mime-type "${1}")"
 encoded_data="$(base64 "${1}")"
 
-echo "data:${mime_type};base64,${encoded_data}"
+echo "data:${mime_type};charset=UTF-8;base64,${encoded_data}"
