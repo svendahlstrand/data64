@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Convert any file to Base64 encoded data URI scheme.
+# data:<mime type>;base64,<file>
+
+if [[ $# -eq 0 ]] ; then
+  echo 'Usage: data64 file'
+  exit 1
+fi
+
+mime_type="$(file -b --mime-type "${1}")"
+encoded_data="$(base64 "${1}")"
+
+echo "data:${mime_type};base64,${encoded_data}"
